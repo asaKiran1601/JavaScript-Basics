@@ -1,0 +1,50 @@
+~ "async and await make promises easier to write"
+
+- async makes a function return a Promise
+- await makes a function wait for a Promise
+
+~ The keyword async before a function makes the function return a promise:
+
+    - Example
+        async function myFunction() {
+          return "Hello";
+        }
+        Is the same as:
+
+        function myFunction() {
+          return Promise.resolve("Hello");
+        }
+
+
+~ await is meant to be used with Promises
+--------------------------------------------------------------------------------------------------------
+-> Async and await combo is used to handle promise.
+
+=> Let see how we deal with Promise without using async and await
+
+const promise = new Promise(function(resolve,reject){
+  resolve("Promise is resolve!!")
+})
+
+function getData(){
+  promise.then(res=>console.log("res")); // When we call the function this is will executed and this will return the value.
+}
+
+getData();
+                                using await with async
+=> Await
+ -- Await is used infront of a promise that has to be resolved and assign it to a variable. that variable will contain the value of promise.
+
+ ** Lets see with an example
+
+  const promise = new Promise(function(resolve,reject){
+  resolve("Promise is resolve!!")
+})
+
+ async function handlePromise(){
+        const val = await promise;
+        console.log(val); // o/p :- Promise is resolve!!
+ } 
+handlePromise();
+                                
+                                deep diving into the async and await
